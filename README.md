@@ -2,6 +2,16 @@
 
 This repository contains Python exercises and small projects for learning purposes.
 
+## Prerequisites
+
+To run these exercises, make sure you have **Python 3 installed** on your system and clone this repository (or download it as a ZIP and extract it):
+
+```bash
+git clone https://github.com/TheEmadM/python-exercises.git
+cd python-exercises
+```
+You can then run each exercise script directly with python filename.py (or python3 filename.py depending on your system).
+
 ## BFS Mango Seller Exercise
 
 This exercise demonstrates a **breadth-first search (BFS)** algorithm in Python to find a "mango seller" in a graph.
