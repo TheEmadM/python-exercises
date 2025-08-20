@@ -63,13 +63,14 @@ def dijkstra(graph, start, end):
 
 
 # Example usage
-graph = {
-    "start": {"a": 6, "b": 2},
-    "a": {"fin": 1},
-    "b": {"a": 3, "fin": 5},
-    "fin": {}
-}
 
-path, total_cost, all_costs = dijkstra(graph, "start", "fin")
-print("Shortest path:", path)
-print("Total cost:", total_cost)
+if __name__ == "__main__":
+    graph = {
+        "start": {"a": 6, "b": 2},
+        "a": {"fin": 1},
+        "b": {"a": 3, "fin": 5},
+        "fin": {}
+    }
+    path, total_cost, all_costs = dijkstra(graph, "start", "fin")
+    print("Shortest path:", path)
+    print("Total cost:", total_cost)
