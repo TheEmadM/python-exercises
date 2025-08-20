@@ -21,13 +21,16 @@ def dijkstra(graph, start, end):
             - total_cost (float): Total cost of the shortest path.
             - costs (dict): Costs to reach all nodes from the start.
     """
-    # Initialize costs and parents
+    # Initialize costs and parents (making 2 hash tables (costs and parents) and an array for recording fully processed nodes)
     infinity = float("inf")
     costs = {node: infinity for node in graph}
     costs[start] = 0
     parents = {node: None for node in graph}
     processed = []
 
+
+    # Consider that all the nodes at the beginning are of cost inf and only start is 0. 
+    # So in the first loop it chooses start for the lowest node.
     def find_lowest_cost_node(costs):
         """Return the unprocessed node with the lowest cost."""
         lowest_cost = float("inf")
@@ -43,13 +46,19 @@ def dijkstra(graph, start, end):
     node = find_lowest_cost_node(costs)
     while node is not None:
         cost = costs[node]
+        # Neighbors are a list of all neighbors of current lowest node. We check all of them in following loop.
         neighbors = graph[node]
+        # Here it chooses all neighbors of the lowest which in the first loop they are the neighbors of start. 
         for n in neighbors:
             new_cost = cost + neighbors[n]
             if new_cost < costs[n]:
                 costs[n] = new_cost
                 parents[n] = node
+        # The node that is processed here is the node that we evaluate all its neighbors.
+        # In first loop the start node is fully processed.
         processed.append(node)
+        # Then when new costs are updated for its neighbors, we start to choose the next node to be processed from them.
+        # In first loop it is simple: the neighbor with lowest cost from start.
         node = find_lowest_cost_node(costs)
 
     # Reconstruct path
